@@ -1,0 +1,82 @@
+1.ARMv8 体系定义了哪些内容：
+	1.ARM体系结构定义了PE的行为，不会定义具体的实现。
+	2.ARM体系结构也定义了debug体系结构和trace体系结构。
+	3.ARM体系结构采用RISC指令集。
+		1.长度一致的寄存器。
+		2.load/store架构，数据处理操作只能对寄存器内容进行处理，不会直接对内容进行处理。
+		3.简单的寻址方式，load/stote地址来源于寄存器或指令域（如立即数）
+		
+	4.ARM体系结构定义了PE与存储系统的交互。
+	5.ARMV8体系结构向后兼容，支持AArch64和AArch32,两种运行均支持SIMD和浮点指令。
+		1.AArch32
+		SIMD指令，用来操作32BIT 通用寄存器；
+		Advanced SIMD指令操作SIMD&FP寄存器；
+		FP指令操作SIMD&FP寄存器；
+		2.AArch64
+		Advanced SIMD指令操作SIMD&FP寄存器；
+		FP指令操作SIMD&FP寄存器；
+	
+二：ARMV8按属性分类
+	属性							说明
+	A(Application profile)			基于MMU(内存管理单元)支持VMSA（虚拟内存系统架构）
+									支持A64/A32/T32指令集
+									
+	R(Real-time profile)			基于MPU(内存保护单元)支持PMSA（受保护的内存系统架构）
+									支持A32/T32指令集
+									
+	M(Microcontroller profile)		实现了低延时中断处理，硬件寄存器栈，支持高级语言写中断处理
+									实现了PMSA的变种。
+									实现了T32指令集的变种
+	注：debug体系结构完全和ARM体系结构集成在一起，没有独立的版本，当前只实现了A-profile.
+	
+	
+三：ARMV8体系结构概念
+	1.Execution State
+	包括AArch64和AArch32两种运行状态；
+	两种运行状态的区别：
+		支持的寄存器宽度不同；
+		支持的指令集不同；
+		异常级别；
+		VMSA;
+		编程模型
+		
+	2.指令集
+		AArch64只支持A64指令集，固定长度为32bit；
+		AArch32支持A32和T32两种指令集，A32使用固定长度为32bit,T32使用可变16bit和32bit.
+		
+	3.系统寄存器
+		（1）控制处理器状态，并显示处理器状态；
+		（2）使用标准的命名格式<register_name>.<bit_field_name>来操作寄存器的某一位，也可以<register_name>[x:y]的格式描述；
+		（3）大部分寄存器有后缀来表示所能访问的最低异常级别：<register_name>_ELx, where x is 0, 1, 2, or 3.
+		（4）系统寄存器包括：
+			• General system control registers.
+			• Debug registers.
+			• Generic Timer registers.
+			• Optionally, Performance Monitor registers.
+			• Optionally, Trace registers.
+			• Optionally, Generic Interrupt Controller (GIC) CPU interface registers.
+	4.DEBUG
+		(1) Self-hosted debug
+			In this model, the PE generates debug exceptions. Debug exceptions are part of the ARMv8 Exception model.一般应用于应用开发
+		(2) External debug
+			In this model, debug events cause the PE to enter Debug state. In Debug state the PE is controlled by an external debugger.
+			一般用于硬件实现和OS系统
+			
+四：支持的数据类型
+七：ARM存储模型
+	ARM存储模型支持的特性
+		（1）非对齐的内存地址访问会产生异常
+		（2）限制Application访问特定的内存区域
+		（3）通过指令将虚拟地址转换为物理地址
+		（4）对多字节数据进行大小端转换
+		（5）控制访问内存的顺序
+		（6）控制caches和地址转换结构？？？
+		（7）同步多个PE访问的共享内存
+	虚拟地址支持的特性
+		（1）AArch64  
+			支持64bit虚拟地址，Translation Control Register决定支持的VA范围.
+			EL0和EL1支持两种独立的虚拟地址范围，有各自独立的转换控制逻辑
+		（2）AArch32  
+			支持32bit虚拟地址，Translation Control Register决定支持的VA范围.
+			EL0和EL1，系统软件可以将VA分割成两个独立的子范围？？？，有各自独立的转换控制逻辑
+		（3）无论是AArch32还是AArch64，VMSA都可以将VA转换为物理地址空间的block或page
