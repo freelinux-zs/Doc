@@ -1,0 +1,56 @@
+1.邮箱：zhoubin.xu@ulegendtimes.com   原始密码都是：tlb2016.
+
+2.展讯登入：Bird_c  Birdc123     http://222.66.158.139:2008/cqweb/
+
+3.MTK XIAOLING.LIU@NBBSW.COM     nbbswc-01或nbbswc-02   下载：账户：nbbsw-29    密码：nbbswc-01
+
+4.账号 junhong.yang@nbbsw.com 密码junhong.yangjunhong.yang 后续提CQ的时候，请同时抄送我的邮箱  guangchuan.hu@nbbsw.com和上面的邮箱junhong.yang@nbbsw.com
+
+4.http://pan.baidu.com/s/1mgr7ZM4?qq-pf-to=pcqq.c2c#path=%252F  GC网盘
+
+
+
+5.https://isupport.spreadtrum.com/iSupport/apply/down#tab-e 展讯资料网站
+
+
+CQ系统（提交问题/bug）
+地址：http://222.66.158.139:2008/cqweb/
+账户：bird_c(注意大小写)
+密码：Birdc123(注意大小写)
+ 
+Support（DCC，项目管理，FAQ，公告，评审，替代料，培训等）
+地址：
+https://isupport.unisoc.com/iSupport/apply/login#*redirecturl*=ispthome
+账户：bird_c(注意大小写)
+密码：Nbbswc01/Nbbswc02
+Birdc92245/Birdc92246（注意大小写）
+ 
+CS系统（下载展讯发布的资料）
+地址：http://cs.spreadtrum.com.cn/login.asp
+账户：bird_c
+密码：bird92245
+
+FTP（传递比较大文件或者问题log）
+FTP账号信息（请注意保密）：
+URL ：ftp.spreadtrum.com   
+帐号：BIRD_C   
+密码：502Tp61c (注意大小写)
+
+账号 junhong.yang@nbbsw.com 密码junhong.yangjunhong.yang
+
+    find . -name ".git" | xargs rm -Rf
+	
+	MTK 文档密码：1498169196
+	
+	
+账号：zhangxuansw.zhang@nbbsw.com
+密码：nbbsw2017 或 nbbsw2018，当前密码为nbbsw2017
+
+mtk:
+guangchuan.hu@nbbsw.com
+a11111111
+chunping_miao_bird   a11111111
+
+展讯：
+bird_c
+Nbbswc01 Nbbswc02
