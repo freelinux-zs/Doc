@@ -1,0 +1,12 @@
+KE的基础知识。
+1.ARM架构，指令集，内存架构，ABI标准是必须要，ELF格式是软件编译的结果，调试时候需要用到，需要了解。
+2.在做指令层次分析时候，对栈布局的掌握至关重要。
+3.了解panic/HWT流程，及其他一些调试手段。
+
+NE的基础知识：
+了解NE流程，coredump等，还有native基本模块。比如内存分配器（dlmalloc/jemalloc）
+
+
+ARM提供給32bits架構不超過4GB記憶體限制的解決方案就是LPAE(Large Physical Address Extension)技術,用以支援最大40bit的實體記憶體定址範圍,
+然在這機制下,每個Process所見的記憶體空間仍受限於32bits 4GB定址.
+
